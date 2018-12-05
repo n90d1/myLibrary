@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    tools:context=".Book.EditBookActivity"
-    android:background="@drawable/border_item_add">
+    tools:context=".Book.EditBookActivity">
 
     <ImageView
         android:id="@+id/ivPicBookEdit"
@@ -25,7 +24,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:background="@drawable/border_item_add">
 
         <TextView
             android:layout_width="match_parent"
@@ -34,8 +34,8 @@
             android:layout_alignStart="@+id/llBookNameEdit"
             android:padding="5dp"
             android:text="TÊN SÁCH"
+            android:textColor="@color/colorWhite"
             android:textStyle="bold"
-            android:background="@drawable/border_cover_title"
             />
 
         <EditText
@@ -55,7 +55,7 @@
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:padding="5dp"
-        >
+        android:background="@drawable/border_item_add">
 
         <TextView
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:text="TÁC GIẢ"
             android:padding="5dp"
             android:textStyle="bold"
-            android:background="@drawable/border_cover_title"/>
+            android:textColor="@color/colorWhite"/>
 
         <EditText
             android:id="@+id/edtAuthorEdit"
@@ -83,7 +83,7 @@
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:padding="5dp"
-        >
+        android:background="@drawable/border_item_add">
 
         <TextView
             android:layout_width="match_parent"
@@ -91,7 +91,7 @@
             android:text="NHÀ XUẤT BẢN"
             android:padding="5dp"
             android:textStyle="bold"
-            android:background="@drawable/border_cover_title"/>
+            android:textColor="@color/colorWhite"/>
 
         <EditText
             android:id="@+id/edtpHEdit"
@@ -122,7 +122,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="5dp"
                 android:padding="5dp"
-                >
+                android:background="@drawable/border_item_add">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -130,7 +130,7 @@
                     android:text="THỂ LOẠI"
                     android:padding="5dp"
                     android:textStyle="bold"
-                    android:background="@drawable/border_cover_title"/>
+                    android:textColor="@color/colorWhite"/>
 
                 <EditText
                     android:id="@+id/edtKindEdit"
@@ -147,7 +147,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="5dp"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:background="@drawable/border_item_add">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -156,7 +157,7 @@
                     android:text="GIÁ BÌA (VNĐ)"
                     android:padding="5dp"
                     android:textStyle="bold"
-                    android:background="@drawable/border_cover_title"/>
+                    android:textColor="@color/colorWhite"/>
 
                 <EditText
                     android:id="@+id/edtPriceEdit"
@@ -174,7 +175,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="5dp"
                 android:padding="5dp"
-                >
+                android:background="@drawable/border_item_add">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -183,7 +184,7 @@
                     android:text="GHI CHÚ"
                     android:padding="3dp"
                     android:textStyle="bold"
-                    android:background="@drawable/border_cover_title"/>
+                    android:textColor="@color/colorWhite"/>
 
                 <EditText
                     android:id="@+id/edtNoteEdit"
@@ -205,10 +206,12 @@
         android:layout_toEndOf="@+id/ivPicBookEdit"
         android:text="Mã số sách"
         android:textColor="@color/colorWhite"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:background="@drawable/border_item_add"
+        android:padding="3dp"/>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvSetTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -216,7 +219,6 @@
         android:layout_marginStart="102dp"
         android:layout_marginTop="12dp"
         android:text="Bạn đang sửa thông tin sách\ncó mã số: "
-        android:textColor="@color/colorWhite"
-        android:textSize="18dp"/>
+        android:textSize="18dp" />
 
 </RelativeLayout>

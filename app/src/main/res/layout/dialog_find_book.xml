@@ -9,10 +9,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitleFind"
+        android:layout_below="@+id/tvTitleDetail"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-15dp"
-        android:background="@drawable/border_cover_find"
+        android:background="@drawable/border_cover_dialog"
         android:orientation="vertical"
         android:padding="15dp">
 
@@ -52,7 +52,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tvTitleFind"
+        android:id="@+id/tvTitleDetail"
         android:layout_width="239dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

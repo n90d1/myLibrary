@@ -102,7 +102,7 @@ public class ListBookActivity extends AppCompatActivity {
 //Tạo dialog tìm kiếm
     private void showFindDialog(){
         final Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.dialog_find);
+        dialog.setContentView(R.layout.dialog_find_book);
         dialog.setCanceledOnTouchOutside(false);
         //Chuyển nền thành trong suốt
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);

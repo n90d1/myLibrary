@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:padding="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitleDetail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-15dp"
+        android:background="@drawable/border_cover_dialog"
+        android:orientation="vertical"
+        android:padding="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/ivDetailBook"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/book_icon" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+                <TextView
+                    android:id="@+id/tvBookNameDetail"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Tên sách"
+                    android:background="@drawable/border_cover_title"
+                    android:padding="5dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/tvAuthorDetail"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Tác giả"
+                    android:background="@drawable/border_cover_title"
+                    android:padding="5dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="5dp"/>
+            </LinearLayout>
+            </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/llScoreViewDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:id="@+id/tvBookIdDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mã số sách"
+                    android:background="@drawable/border_cover_title"
+                    android:padding="5dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/tvpHDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nhà xuất bản"
+                    android:background="@drawable/border_cover_title"
+                    android:padding="5dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/tvKindDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thể loại"
+                    android:background="@drawable/border_cover_title"
+                    android:padding="5dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/tvPriceDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giá bìa"
+                    android:background="@drawable/border_cover_title"
+                    android:padding="5dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/tvNoteDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ghi chú"
+                    android:background="@drawable/border_cover_title"
+                    android:padding="5dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="5dp"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnEditBok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:text="Sửa"
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/btnCancelEditBok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_cancel"
+                android:text="Huỷ"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTitleDetail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/border_cover_text"
+        android:padding="0dp"
+        android:paddingLeft="30dp"
+        android:paddingTop="5dp"
+        android:paddingRight="30dp"
+        android:paddingBottom="10dp"
+        android:text="Thông tin sách"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="30sp" />
+
+</RelativeLayout>
