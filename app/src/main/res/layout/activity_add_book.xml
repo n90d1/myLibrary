@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    tools:context=".Book.AddBookActivity">
+
+    <ImageView
+        android:id="@+id/ivPicBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/book_icon" />
+
+    <LinearLayout
+        android:id="@+id/llBookName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivPicBook"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:background="@drawable/border_item_add">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llBookName"
+            android:layout_alignStart="@+id/llBookName"
+            android:padding="5dp"
+            android:text="TÊN SÁCH"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            />
+
+        <EditText
+            android:id="@+id/edtBookName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ví dụ: Đắc nhân tâm"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llBookName"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:background="@drawable/border_item_add">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/llAuthor"
+            android:padding="5dp"
+            android:text="TÁC GIẢ"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"/>
+
+        <EditText
+            android:id="@+id/edtAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ví dụ: Dale Carnegie"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llpH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llAuthor"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:background="@drawable/border_item_add">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="NHÀ XUẤT BẢN"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"/>
+
+        <EditText
+            android:id="@+id/edtpH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ví dụ: First News"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llpH"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:id="@+id/llScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llBookId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:background="@drawable/border_item_add">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="MÃ SỐ SÁCH"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"/>
+
+                <EditText
+                    android:id="@+id/edtBookId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ví du: 9786045843482"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llKind"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:background="@drawable/border_item_add">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="THỂ LOẠI"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"/>
+
+                <EditText
+                    android:id="@+id/edtKind"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ví dụ: Sefl Help"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:background="@drawable/border_item_add">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:padding="5dp"
+                    android:text="GIÁ BÌA (VNĐ)"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"/>
+
+                <EditText
+                    android:id="@+id/edtPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ví dụ: 76000"
+                    android:inputType="textPersonName" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llNote"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:background="@drawable/border_item_add">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:padding="5dp"
+                    android:text="GHI CHÚ"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"/>
+
+                <EditText
+                    android:id="@+id/edtNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ví dụ: Bất cứ thứ gì về cuốn sách"
+                    android:inputType="textMultiLine" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
