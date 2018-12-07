@@ -1,5 +1,6 @@
 package com.example.nguye.mylibr.Book;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -48,6 +49,8 @@ public class EditBookActivity extends AppCompatActivity {
                 String noteEd = edtNoteEdit.getText().toString();
                 //Chèn các biến vào link
                 Update(link(bookIdEd,bookNameEd,kindEd,pHEd,authorEd,priceEd,noteEd));
+                Intent intentBa = new Intent(EditBookActivity.this, ListBookActivity.class);
+                startActivity(intentBa);
                 return true;
         }
         return super.onOptionsItemSelected(item);

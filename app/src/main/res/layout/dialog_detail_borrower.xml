@@ -22,43 +22,43 @@
             android:orientation="horizontal"
             android:padding="10dp">
             <ImageView
-                android:id="@+id/ivDetailBook"
+                android:id="@+id/ivDetailBo"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
-                app:srcCompat="@drawable/book_icon" />
+                app:srcCompat="@drawable/borrower_icon" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_horizontal">
                 <TextView
-                    android:id="@+id/tvBookNameDetail"
+                    android:id="@+id/tvBoNameDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tên sách"
+                    android:text="Tên người mượn"
                     android:background="@drawable/border_cover_title"
                     android:padding="5dp"
                     android:textSize="16sp"
                     android:layout_marginBottom="5dp"/>
                 <TextView
-                    android:id="@+id/tvAuthorDetail"
+                    android:id="@+id/tvPhoneBoDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tác giả"
+                    android:text="Số điện thoại"
                     android:background="@drawable/border_cover_title"
                     android:padding="5dp"
                     android:textSize="16sp"
                     android:layout_marginBottom="5dp"/>
             </LinearLayout>
-            </LinearLayout>
+        </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:id="@+id/llScoreViewDetail"
+                android:id="@+id/llScoreViewDetailBo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -66,52 +66,42 @@
                 android:layout_marginBottom="5dp">
 
                 <TextView
-                    android:id="@+id/tvBookIdDetail"
+                    android:id="@+id/tvBoIdDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mã số sách"
+                    android:text="Mã số người mượn"
                     android:background="@drawable/border_cover_title"
                     android:padding="5dp"
                     android:textSize="16sp"
                     android:layout_marginBottom="5dp"/>
 
                 <TextView
-                    android:id="@+id/tvpHDetail"
+                    android:id="@+id/tvBirthdayBoDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nhà xuất bản"
+                    android:text="Ngày sinh"
                     android:background="@drawable/border_cover_title"
                     android:padding="5dp"
                     android:textSize="16sp"
                     android:layout_marginBottom="5dp"/>
                 <TextView
-                    android:id="@+id/tvKindDetail"
+                    android:id="@+id/tvAddressBoDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Thể loại"
+                    android:text="Địa chỉ"
                     android:background="@drawable/border_cover_title"
                     android:padding="5dp"
                     android:textSize="16sp"
                     android:layout_marginBottom="5dp"/>
                 <TextView
-                    android:id="@+id/tvPriceDetail"
+                    android:id="@+id/tvEmailBoDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Giá bìa"
+                    android:text="Email"
                     android:background="@drawable/border_cover_title"
                     android:padding="5dp"
                     android:textSize="16sp"
                     android:layout_marginBottom="5dp"/>
-                <TextView
-                    android:id="@+id/tvNoteDetail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Ghi chú"
-                    android:background="@drawable/border_cover_title"
-                    android:padding="5dp"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="5dp"/>
-
             </LinearLayout>
         </ScrollView>
 
@@ -122,7 +112,7 @@
             android:weightSum="2">
 
             <Button
-                android:id="@+id/btnEditBok"
+                android:id="@+id/btnEditBo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -132,7 +122,7 @@
                 android:textColor="@color/colorWhite" />
 
             <Button
-                android:id="@+id/btnCancelEditBok"
+                android:id="@+id/btnCancelEditBo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -161,5 +151,4 @@
         android:textAllCaps="true"
         android:textColor="@color/colorWhite"
         android:textSize="30sp" />
-
 </RelativeLayout>

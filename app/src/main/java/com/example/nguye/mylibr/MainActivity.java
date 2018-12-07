@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.nguye.mylibr.Book.AddBookActivity;
 import com.example.nguye.mylibr.Book.ListBookActivity;
+import com.example.nguye.mylibr.Borrower.ListBorrowerActivity;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentBook);
     }
     public void nextBorrower(View v){
+        Intent intentBorrower = new Intent(MainActivity.this, ListBorrowerActivity.class);
+        startActivity(intentBorrower);
     }
     public void nextBorrow(View v){
     }

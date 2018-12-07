@@ -7,10 +7,10 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context=".Book.ListBookActivity">
+    tools:context=".Borrower.ListBorrowerActivity">
 
     <ListView
-        android:id="@+id/lvBook"
+        android:id="@+id/lvBorrower"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"

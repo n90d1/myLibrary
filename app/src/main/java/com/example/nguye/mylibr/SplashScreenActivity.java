@@ -16,7 +16,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         EasySplashScreen splashScreen = new EasySplashScreen(SplashScreenActivity.this)
                 .withFullScreen()
                 .withTargetActivity(LoginActivity.class)
-                .withSplashTimeOut(5000)
+                .withSplashTimeOut(3000)
                 .withBackgroundColor(Color.WHITE)
                 .withLogo(R.drawable.main_logo);
         View easySplashScreen = splashScreen.create();

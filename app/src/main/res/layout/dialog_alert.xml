@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:text="Có vẻ như sách bạn tìm không có, bạn có muốn thêm sách mới không !"
+            android:text=""
             android:textAlignment="center"
             android:layout_marginTop="10dp"
             android:textSize="18dp"
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_button"
-                android:text="Có"
+                android:text=""
                 android:layout_marginRight="5dp"
                 android:textColor="@color/colorWhite"/>
 
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_cancel"
-                android:text="Không"
+                android:text=""
                 android:layout_marginRight="5dp"
                 android:textColor="@color/colorWhite"/>
         </LinearLayout>
@@ -65,7 +65,7 @@
         android:paddingTop="5dp"
         android:paddingRight="30dp"
         android:paddingBottom="10dp"
-        android:text="Cảnh Báo"
+        android:text="Chú Ý"
         android:textColor="@color/colorWhite"
         android:textAlignment="center"
         android:textSize="30sp" />
