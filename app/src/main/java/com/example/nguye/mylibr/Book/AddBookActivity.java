@@ -28,7 +28,7 @@ public class AddBookActivity extends AppCompatActivity {
     public String link(String bookId, String bookName, String kind, String pH, String author, int price, String note){
         //10.18.101.162|| wifi FPT Polytechnic
         //10.0.136.36|| wifi Mang Day KTX
-        String linkAddBook = "http://10.0.136.36:3000/addBook?bookId="+bookId+"&bookName="+bookName+"&kind="+kind+"&pH="+pH+"&author="+author+"&price="+price+"&picPre=&note="+note;
+        String linkAddBook = "http://192.168.43.168:3000/addBook?bookId="+bookId+"&bookName="+bookName+"&kind="+kind+"&pH="+pH+"&author="+author+"&price="+price+"&picPre=&note="+note;
         linkAddBook = linkAddBook.replace(" ", "%20");
         return linkAddBook;
     }

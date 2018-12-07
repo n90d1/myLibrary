@@ -1,75 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/border_item_list"
-    android:padding="10dp">
-
-    <ImageView
-        android:id="@+id/iV_Book"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="28dp"
-        tools:srcCompat="@drawable/book_icon" />
-
-    <TextView
-        android:id="@+id/tvBookId"
+    android:padding="10dp"
+    android:orientation="horizontal">
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:text="Mã số sách"
-        android:textColor="@color/colorWhite"
-        android:textAllCaps="false"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/tvBookName"
-        android:layout_width="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvBookId"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Mã số sách"
+            android:background="@drawable/border_cover_title"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:textSize="10sp" />
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:id="@+id/iV_Book"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            tools:src="@drawable/book_icon"
+            android:layout_gravity="center_vertical|center_horizontal"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tvBookId"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="147dp"
-        android:layout_marginBottom="-35dp"
-        android:layout_centerHorizontal="true"
-        android:text="Tên sách"
-        android:textAllCaps="true"
-        android:textColor="@color/colorWhite"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp">
+        <TextView
+            android:id="@+id/tvBookName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Tên sách"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tvKind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="65dp"
-        android:layout_toEndOf="@+id/iV_Book"
-        android:text="Thể Loại"
-        android:textColor="@color/colorWhite"
-        android:textSize="20sp"
-        android:textStyle="italic" />
+        <TextView
+            android:id="@+id/tvKind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thể Loại"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:textStyle="italic" />
 
-    <TextView
-        android:id="@+id/tvAuthor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvKind"
-        android:layout_alignEnd="@+id/tvKind"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="7dp"
-        android:layout_toEndOf="@+id/iV_Book"
-        android:text="Tác Giả"
-        android:textColor="@color/colorWhite"
-        android:textSize="20sp"
-        android:textStyle="italic" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tác Giả"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+</LinearLayout>

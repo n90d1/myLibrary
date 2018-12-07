@@ -13,7 +13,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -37,7 +39,7 @@ public class ListBookActivity extends AppCompatActivity {
     ListView lvBook;
     //10.18.101.162|| wifi FPT Polytechnic
     //10.0.136.36|| wifi Mang Day KTX
-    String linkGetBook="http://10.0.136.36:3000/listBook";
+    String linkGetBook="http://192.168.43.168:3000/listBook";
     public static ArrayList<book> bookArrayList;
     bookAdapter booksAdapter;
     public static int bookId;
@@ -56,9 +58,10 @@ public class ListBookActivity extends AppCompatActivity {
         lvBook.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            posi = position;
-            Intent intent = new Intent(getApplicationContext(), EditBookActivity.class);
-            startActivity(intent);
+//            posi = position;
+//            Intent intent = new Intent(getApplicationContext(), EditBookActivity.class);
+//            startActivity(intent);
+                showDetailDialog();
             }
         });
         //Nhấn giữ lâu để hiện dialog xoá
@@ -75,17 +78,17 @@ public class ListBookActivity extends AppCompatActivity {
             }
         });
 }
-//Gắn menu custom
+    //Gắn menu custom
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_book, menu);
         return true;
     }
-//Tuỳ chỉnh item trong menu custom
+    //Tuỳ chỉnh item trong menu custom
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.item_search:
                 showFindDialog();
                 return true;
@@ -99,11 +102,52 @@ public class ListBookActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-//Tạo dialog tìm kiếm
+    //Tạo dialog chi tiết sách
+    private void showDetailDialog(){
+        final Dialog dialOg = new Dialog(this);
+        dialOg.setContentView(R.layout.dialog_detail_book);
+        //Chuyển nền trong suốt
+        dialOg.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        final int posit = ListBookActivity.posi;
+        TextView tvBookNameDetail = (TextView) dialOg.findViewById(R.id.tvBookNameDetail);
+        TextView tvAuthorDetail = (TextView) dialOg.findViewById(R.id.tvAuthorDetail);
+        TextView tvBookIdDetail = (TextView) dialOg.findViewById(R.id.tvBookIdDetail);
+        TextView tvpHDetail = (TextView) dialOg.findViewById(R.id.tvpHDetail);
+        TextView tvKindDetail = (TextView) dialOg.findViewById(R.id.tvKindDetail);
+        TextView tvPriceDetail = (TextView) dialOg.findViewById(R.id.tvPriceDetail);
+        TextView tvNoteDetail = (TextView) dialOg.findViewById(R.id.tvNoteDetail);
+
+        Button btnEditBok = (Button) dialOg.findViewById(R.id.btnEditBok);
+        Button btnCancelEditBok = (Button) dialOg.findViewById(R.id.btnCancelEditBok);
+
+        tvBookNameDetail.setText(ListBookActivity.bookArrayList.get(posit).getBookName());
+        tvAuthorDetail.setText(ListBookActivity.bookArrayList.get(posit).getAuthor());
+        tvBookIdDetail.setText(ListBookActivity.bookArrayList.get(posit).getBookId());
+        tvpHDetail.setText(ListBookActivity.bookArrayList.get(posit).getpH());
+        tvKindDetail.setText(ListBookActivity.bookArrayList.get(posit).getKind());
+        tvPriceDetail.setText(ListBookActivity.bookArrayList.get(posit).getPrice()+"");
+        tvNoteDetail.setText(ListBookActivity.bookArrayList.get(posit).getNote());
+
+        btnEditBok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentEdit = new Intent(ListBookActivity.this, EditBookActivity.class);
+                startActivity(intentEdit);
+            }
+        });
+        btnCancelEditBok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialOg.cancel();
+            }
+        });
+        dialOg.show();
+    }
+    //Tạo dialog tìm kiếm
     private void showFindDialog(){
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_find_book);
-        dialog.setCanceledOnTouchOutside(false);
         //Chuyển nền thành trong suốt
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
@@ -133,73 +177,82 @@ public class ListBookActivity extends AppCompatActivity {
         });
         dialog.show();
     }
-//Tạo dialog thêm sách
+    //Tạo dialog thêm sách
     public void showAddDialog(){
-        final AlertDialog.Builder builderAdd = new AlertDialog.Builder(this);
-        builderAdd.setTitle("Chú ý")
-                .setMessage("Có vẻ như sách bạn tìm không có, bạn có muốn thêm sách mới không")
-                .setCancelable(false)
-                .setPositiveButton("Không", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                })
-                .setNegativeButton("Có", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(ListBookActivity.this, AddBookActivity.class);
-                        startActivity(intent);
-                    }
-                });
-        AlertDialog alertDialog = builderAdd.create();
-        alertDialog.show();
-    }
-//Tạo dialog cảnh báo xoá
-    public void showAlertDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder .setTitle("Xóa")
-                .setMessage("Bạn có muốn xóa không?")
-                .setCancelable(false)
-                .setPositiveButton("Không", new DialogInterface.OnClickListener() {
+        final Dialog dialoG = new Dialog(this);
+        dialoG.setContentView(R.layout.dialog_alert_add);
+        //Chuyển nền thành trong suốt
+        dialoG.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        final Button btnYes = (Button) dialoG.findViewById(R.id.btnYes);
+        final Button btnNo = (Button) dialoG.findViewById(R.id.btnNo);
+
+        btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(View v) {
+                Intent intent = new Intent(ListBookActivity.this, AddBookActivity.class);
+                startActivity(intent);
             }
-        })
-        .setNegativeButton("Xóa", new DialogInterface.OnClickListener() {
+        });
+        btnNo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(View v) {
+                dialoG.cancel();
+            }
+        });
+        dialoG.show();
+    }
+    //Tạo dialog cảnh báo xoá
+    public void showAlertDialog(){
+        final Dialog diaLog = new Dialog(this);
+        diaLog.setContentView(R.layout.dialog_delete);
+        //Trong suốt nền
+        diaLog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        final Button btnDelete = diaLog.findViewById(R.id.btnDelete);
+        final Button btnCancelDelete = diaLog.findViewById(R.id.btnCancelDelete);
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"Xoá sách vừa chọn", Toast.LENGTH_SHORT).show();
                 Run(linkDel(bookId));
                 getData(linkGetBook);
+                diaLog.cancel();
             }
         });
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
+        btnCancelDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                diaLog.cancel();
+            }
+        });
+        diaLog.show();
     }
-//Hàm xoá sách
+    //Link xoá sách
     public String linkDel(int bookId){
         //10.18.101.162|| wifi FPT Polytechnic
         //10.0.136.36|| wifi Mang Day KTX
-        String linkDelBook = "http://10.0.136.36:3000/deleteBook?bookId="+bookId;
+        String linkDelBook = "http://192.168.43.168:3000/deleteBook?bookId="+bookId;
         return linkDelBook;
     }
-//Hàm tìm sách theo id
+    //Link tìm sách theo id
     public String linkFindById(int bookId){
         //10.18.101.162|| wifi FPT Polytechnic
         //10.0.136.36|| wifi Mang Day KTX
-        String linkFindIdBook = "http://10.0.136.36:3000/findBookById?bookId="+bookId;
+        String linkFindIdBook = "http://192.168.43.168:3000/findBookById?bookId="+bookId;
         return linkFindIdBook;
     }
-//Hàm tìm sách theo tên
+    //Link tìm sách theo tên
     public String linkFindByName(String bookName){
         //10.18.101.162|| wifi FPT Polytechnic
         //10.0.136.36|| wifi Mang Day KTX
-        String linkFindNBook = "http://10.0.136.36:3000/findBookByName?bookName="+bookName;
+        String linkFindNBook = "http://192.168.43.168:3000/findBookByName?bookName="+bookName;
         linkFindNBook = linkFindNBook.replace(" ", "%20");
         return linkFindNBook;
     }
-//Lấy data xuống sau đó đẩy lên list
-//Dùn biến String để tuỳ chọn thông tin lấy
+    //Lấy data xuống sau đó đẩy lên list
+    //Dùn biến String để tuỳ chọn thông tin lấy
     public  void getData(String link){
         final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(link, new Response.Listener<JSONArray>() {
@@ -233,17 +286,16 @@ public class ListBookActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                Toast.makeText(getApplicationContext(),"Lỗi ! Vui lòng kiểm tra lại hoặc liên hệ với quản trị viên",Toast.LENGTH_SHORT).show();
                 showAddDialog();
             }
         });
         requestQueue.add(jsonArrayRequest);
     }
-//Ánh xạ
+    //Ánh xạ
     public void netLink(){
         lvBook = (ListView) findViewById(R.id.lvBook);
     }
-//Hàm thực thi lệnh
+    //Hàm thực thi lệnh
     private void Run(String Link){
         StringRequest stringRequest = new StringRequest(Request.Method.GET,Link, new Response.Listener<String>() {
             @Override

@@ -56,7 +56,7 @@ public class EditBookActivity extends AppCompatActivity {
     public String link (String bookIdEd, String bookNameEd, String kindEd, String pHEd, String authorEd, int priceEd, String noteEd){
         //10.18.101.162|| wifi FPT Polytechnic
         //10.0.136.36|| wifi Mang Day KTX
-        String linkEditBook = "http://10.0.136.36:3000/updateBook?bookName="+bookNameEd+"&kind="+kindEd+"&pH="+pHEd+"&author="+authorEd+"&price="+priceEd+"&picPre=&note="+noteEd+"&bookId="+bookIdEd;
+        String linkEditBook = "http://192.168.43.168:3000/updateBook?bookName="+bookNameEd+"&kind="+kindEd+"&pH="+pHEd+"&author="+authorEd+"&price="+priceEd+"&picPre=&note="+noteEd+"&bookId="+bookIdEd;
         linkEditBook = linkEditBook.replace(" ", "%20");
         return linkEditBook;
     }

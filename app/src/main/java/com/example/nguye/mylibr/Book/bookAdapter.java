@@ -53,7 +53,7 @@ public class bookAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         book books = (book) getItem(position);
-        viewHolder.tvBookId.setText("Mã số: "+books.bookId);
+        viewHolder.tvBookId.setText(""+books.bookId);
         viewHolder.tvBookName.setText(""+books.bookName);
         viewHolder.tvKind.setText("Thể loại: "+books.kind);
         viewHolder.tvAuthor.setText("Tác giả: "+ books.author);
