@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
+    android:layout_margin="10dp"
     tools:context=".Book.EditBookActivity">
 
     <ImageView
-        android:id="@+id/ivPicBookEdit"
+        android:id="@+id/ivPicBoEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -17,10 +17,10 @@
         android:layout_marginTop="0dp"
         app:srcCompat="@drawable/book_icon" />
     <LinearLayout
-        android:id="@+id/llBookNameEdit"
+        android:id="@+id/llBoNameEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ivPicBookEdit"
+        android:layout_below="@+id/ivPicBoEdit"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
@@ -30,8 +30,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llBookNameEdit"
-            android:layout_alignStart="@+id/llBookNameEdit"
+            android:layout_below="@+id/llBoNameEdit"
+            android:layout_alignStart="@+id/llBoNameEdit"
             android:padding="5dp"
             android:text="TÊN SÁCH"
             android:textColor="@color/colorWhite"
@@ -48,10 +48,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llAuthorEdit"
+        android:id="@+id/llPhoneBoEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llBookNameEdit"
+        android:layout_below="@+id/llBoNameEdit"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:padding="5dp"
@@ -60,7 +60,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/llAuthorEdit"
+            android:layout_alignStart="@+id/llPhoneBoEdit"
             android:text="TÁC GIẢ"
             android:padding="5dp"
             android:textStyle="bold"
@@ -76,10 +76,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llpHEdit"
+        android:id="@+id/llAddressBoEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llAuthorEdit"
+        android:layout_below="@+id/llPhoneBoEdit"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:padding="5dp"
@@ -105,7 +105,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llpHEdit"
+        android:layout_below="@+id/llAddressBoEdit"
         android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true">
 
@@ -201,14 +201,14 @@
         android:id="@+id/tvBookIdEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="33dp"
-        android:layout_toEndOf="@+id/ivPicBookEdit"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="25dp"
+        android:layout_toEndOf="@+id/ivPicBoEdit"
+        android:background="@drawable/border_item_add"
+        android:padding="3dp"
         android:text="Mã số sách"
         android:textColor="@color/colorWhite"
-        android:textSize="18dp"
-        android:background="@drawable/border_item_add"
-        android:padding="3dp"/>
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/tvSetTitle"
@@ -217,7 +217,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="102dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="Bạn đang sửa thông tin sách\ncó mã số: "
         android:textSize="18dp" />
 

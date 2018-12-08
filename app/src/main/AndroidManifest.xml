@@ -4,6 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:allowBackup="true"
@@ -44,15 +48,19 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".Borrower.ListBorrowerActivity"
+        <activity
+            android:name=".Borrower.ListBorrowerActivity"
             android:label="Danh sách người mượn"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Borrower.AddBorrowerActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Borrower.AddBorrowerActivity"
             android:label="Thêm người mượn"
-            android:parentActivityName=".Borrower.ListBorrowerActivity"/>
-        <activity android:name=".Borrower.EditBorrowerActivity"
+            android:parentActivityName=".Borrower.ListBorrowerActivity" />
+        <activity
+            android:name=".Borrower.EditBorrowerActivity"
             android:label="Sửa thông tin người dùng"
-            android:parentActivityName=".Borrower.ListBorrowerActivity"/>
+            android:parentActivityName=".Borrower.ListBorrowerActivity" />
+        <activity android:name=".ScannerActivity"></activity>
     </application>
 
 </manifest>

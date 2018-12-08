@@ -1,5 +1,6 @@
 package com.example.nguye.mylibr;
 
+import android.Manifest;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,5 +26,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentBorrower);
     }
     public void nextBorrow(View v){
+        Intent intentScan = new Intent(MainActivity.this, ScannerActivity.class);
+        startActivity(intentScan);
     }
 }

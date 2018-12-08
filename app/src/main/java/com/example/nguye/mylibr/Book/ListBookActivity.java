@@ -36,7 +36,7 @@ public class ListBookActivity extends AppCompatActivity {
     ListView lvBook;
     //10.18.101.162|| wifi FPT Polytechnic
     //10.0.136.36|| wifi Mang Day KTX
-    String linkGetBook="http://192.168.43.168:3000/listBook";
+    String linkGetBook="http://10.0.136.36:3000/listBook";
     public static ArrayList<book> bookArrayList;
     bookAdapter booksAdapter;
     public static int bookId;
@@ -234,21 +234,21 @@ public class ListBookActivity extends AppCompatActivity {
     public String linkDel(int bookId){
         //10.18.101.162|| wifi FPT Polytechnic
         //10.0.136.36|| wifi Mang Day KTX
-        String linkDelBook = "http://192.168.43.168:3000/deleteBook?bookId="+bookId;
+        String linkDelBook = "http://10.0.136.36:3000/deleteBook?bookId="+bookId;
         return linkDelBook;
     }
     //Link tìm sách theo id
     public String linkFindById(int bookId){
         //10.18.101.162|| wifi FPT Polytechnic
         //10.0.136.36|| wifi Mang Day KTX
-        String linkFindIdBook = "http://192.168.43.168:3000/findBookById?bookId="+bookId;
+        String linkFindIdBook = "http://10.0.136.36:3000/findBookById?bookId="+bookId;
         return linkFindIdBook;
     }
     //Link tìm sách theo tên
     public String linkFindByName(String bookName){
         //10.18.101.162|| wifi FPT Polytechnic
         //10.0.136.36|| wifi Mang Day KTX
-        String linkFindNBook = "http://192.168.43.168:3000/findBookByName?bookName="+bookName;
+        String linkFindNBook = "http://10.0.136.36:3000/findBookByName?bookName="+bookName;
         linkFindNBook = linkFindNBook.replace(" ", "%20");
         return linkFindNBook;
     }

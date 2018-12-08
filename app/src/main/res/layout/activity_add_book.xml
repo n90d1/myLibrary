@@ -47,7 +47,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llAuthor"
+        android:id="@+id/llPhoneBo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/llBookName"
@@ -59,7 +59,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/llAuthor"
+            android:layout_alignStart="@+id/llPhoneBo"
             android:padding="5dp"
             android:text="TÁC GIẢ"
             android:textStyle="bold"
@@ -75,10 +75,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llpH"
+        android:id="@+id/llAddressBo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llAuthor"
+        android:layout_below="@+id/llPhoneBo"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:padding="5dp"
@@ -104,7 +104,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llpH"
+        android:layout_below="@+id/llAddressBo"
         android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true">
 

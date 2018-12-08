@@ -1,9 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     tools:context=".Borrower.EditBorrowerActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/ivPicBoEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="0dp"
+        app:srcCompat="@drawable/borrower_icon" />
+
+    <LinearLayout
+        android:id="@+id/llBoNameEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivPicBoEdit"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_item_add"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llBoNameEdit"
+            android:layout_alignStart="@+id/llBoNameEdit"
+            android:padding="5dp"
+            android:text="TÊN NGƯỜI DÙNG"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtBoNameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ví dụ: Đinh Đình Nguyên"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llPhoneBoEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llBoNameEdit"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border_item_add"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/llPhoneBoEdit"
+            android:padding="5dp"
+            android:text="SỐ ĐIỆN THOẠI"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtPhoneBoEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ví dụ: 03995173**"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llAddressBoEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llPhoneBoEdit"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border_item_add"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="ĐỊA CHỈ"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtAddressBoEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ví dụ: 15/9 Kí Con, Pleiku, Gia Lai"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llAddressBoEdit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:id="@+id/llScrollViewEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llBirthdayBoEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/border_item_add"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:padding="5dp"
+                    android:text="NGÀY SINH"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Ví dụ: yyyy-m-d"
+                        android:textSize="18sp"
+                        android:paddingLeft="3dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/tvBirhtdayBoEdit"/>
+                    <!--<EditText-->
+                        <!--android:id="@+id/edtBirhtdayBoEdit"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:ems="10"-->
+                        <!--android:hint="Ví dụ: 1998-08-07"-->
+                        <!--android:inputType="textPersonName" />-->
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_date_range"
+                        android:onClick="datePicker"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llNoteEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/border_item_add"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:padding="3dp"
+                    android:text="EMAIL"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtEmailBoEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ví dụ: nguyendd1998vn@gmail.com"
+                    android:inputType="textMultiLine" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvBoIdEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/ivPicBoEdit"
+        android:background="@drawable/border_item_add"
+        android:padding="3dp"
+        android:text="Mã số người mượn"
+        android:textColor="@color/colorWhite"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/tvSetTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="0dp"
+        android:text="Bạn đang sửa thông tin người dùng\ncó mã số: "
+        android:textSize="18dp" />
+</RelativeLayout>

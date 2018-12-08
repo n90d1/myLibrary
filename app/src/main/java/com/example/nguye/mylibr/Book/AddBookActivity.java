@@ -1,5 +1,6 @@
 package com.example.nguye.mylibr.Book;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -24,22 +25,22 @@ public class AddBookActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_book);
         linkNet();
     }
-//Link Add book
+    //Link Add book
     public String link(String bookId, String bookName, String kind, String pH, String author, int price, String note){
         //10.18.101.162|| wifi FPT Polytechnic
         //10.0.136.36|| wifi Mang Day KTX
-        String linkAddBook = "http://192.168.43.168:3000/addBook?bookId="+bookId+"&bookName="+bookName+"&kind="+kind+"&pH="+pH+"&author="+author+"&price="+price+"&picPre=&note="+note;
+        String linkAddBook = "http://10.0.136.36:3000/addBook?bookId="+bookId+"&bookName="+bookName+"&kind="+kind+"&pH="+pH+"&author="+author+"&price="+price+"&picPre=&note="+note;
         linkAddBook = linkAddBook.replace(" ", "%20");
         return linkAddBook;
     }
-//Thêm menu vào add book
+    //Thêm menu vào add book
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_save,menu);
         return true;
     }
-//Set chức năng cho item trong menu
+    //Set chức năng cho item trong menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -53,11 +54,13 @@ public class AddBookActivity extends AppCompatActivity {
                 String note = edtNote.getText().toString();
                 //Chèn các biến vào link
                 Add(link(bookId, bookName, kind, pH, author, price, note));
+                Intent intentNextBok = new Intent(AddBookActivity.this, ListBookActivity.class);
+                startActivity(intentNextBok);
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
-//Ánh Xạ
+    //Ánh Xạ
     public void linkNet(){
         edtBookId = (EditText) findViewById(R.id.edtBookId);
         edtBookName = (EditText) findViewById(R.id.edtBookName);
@@ -67,7 +70,7 @@ public class AddBookActivity extends AppCompatActivity {
         edtPrice =(EditText) findViewById(R.id.edtPrice);
         edtNote = (EditText) findViewById(R.id.edtNote);
     }
-//Chạy link Add & Check lỗi
+    //Chạy link Add & Check lỗi
     private void Add(String link){
         StringRequest stringRequest = new StringRequest(Request.Method.GET,link, new Response.Listener<String>() {
             @Override

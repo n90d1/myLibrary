@@ -39,7 +39,7 @@
                     android:text="Tên người mượn"
                     android:background="@drawable/border_cover_title"
                     android:padding="5dp"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginBottom="5dp"/>
                 <TextView
                     android:id="@+id/tvPhoneBoDetail"
@@ -48,7 +48,7 @@
                     android:text="Số điện thoại"
                     android:background="@drawable/border_cover_title"
                     android:padding="5dp"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginBottom="5dp"/>
             </LinearLayout>
         </LinearLayout>
@@ -72,7 +72,7 @@
                     android:text="Mã số người mượn"
                     android:background="@drawable/border_cover_title"
                     android:padding="5dp"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginBottom="5dp"/>
 
                 <TextView
@@ -82,7 +82,7 @@
                     android:text="Ngày sinh"
                     android:background="@drawable/border_cover_title"
                     android:padding="5dp"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginBottom="5dp"/>
                 <TextView
                     android:id="@+id/tvAddressBoDetail"
@@ -91,7 +91,7 @@
                     android:text="Địa chỉ"
                     android:background="@drawable/border_cover_title"
                     android:padding="5dp"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginBottom="5dp"/>
                 <TextView
                     android:id="@+id/tvEmailBoDetail"
@@ -100,7 +100,7 @@
                     android:text="Email"
                     android:background="@drawable/border_cover_title"
                     android:padding="5dp"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginBottom="5dp"/>
             </LinearLayout>
         </ScrollView>
