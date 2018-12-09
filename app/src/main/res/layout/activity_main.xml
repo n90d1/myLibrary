@@ -7,20 +7,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:padding="50dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:onClick="nextBook"
-        android:background="@color/colorPrimary">
-
+    android:padding="30dp"
+    android:gravity="center_horizontal">
         <LinearLayout
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:orientation="vertical"
             android:padding="15dp"
-            android:background="@drawable/border_color_a">
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_color_a"
+            android:onClick="nextBook">
 
             <ImageView
                 android:layout_width="70dp"
@@ -38,26 +34,15 @@
                 android:textColor="@color/colorPrimary"
                 android:layout_gravity="center_horizontal"/>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="15dp"
-        android:background="@color/colorAccent"
-        android:onClick="nextBorrower">
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:orientation="vertical"
             android:padding="15dp"
-            android:background="@drawable/border_color_b">
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_color_b"
+            android:onClick="nextBorrower">
 
             <ImageView
                 android:layout_width="70dp"
@@ -75,21 +60,14 @@
                 android:textColor="@color/colorAccent"
                 android:layout_gravity="center_horizontal"/>
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="15dp"
-        android:background="@color/colorPrimaryDark"
-        android:onClick="nextBorrow">
-
         <LinearLayout
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:orientation="vertical"
             android:padding="15dp"
-            android:background="@drawable/border_color_c">
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_color_c"
+            android:onClick="nextHisory">
 
             <ImageView
                 android:layout_width="70dp"
@@ -107,5 +85,4 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_gravity="center_horizontal"/>
         </LinearLayout>
-    </LinearLayout>
 </LinearLayout>

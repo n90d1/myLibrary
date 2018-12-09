@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,13 +18,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.nguye.mylibr.R;
+import com.example.nguye.mylibr.ScannerActivity;
 
 public class AddBookActivity extends AppCompatActivity {
-    EditText edtBookId, edtBookName, edtKind, edtpH, edtAuthor, edtPrice, edtNote;
+    public static EditText edtBookId;
+    EditText edtBookName, edtKind, edtpH, edtAuthor, edtPrice, edtNote;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_book);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         linkNet();
     }
     //Link Add book
@@ -90,6 +95,10 @@ public class AddBookActivity extends AppCompatActivity {
         });
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
+    }
+    public void scannerNext(View v){
+        Intent intentSc = new Intent(AddBookActivity.this, ScannerActivity.class);
+        startActivity(intentSc);
     }
 
 }

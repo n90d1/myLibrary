@@ -30,7 +30,8 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:label="Dẫn hướng"
+            android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".Book.ListBookActivity"
             android:label="Sách trong kho"
@@ -60,7 +61,14 @@
             android:name=".Borrower.EditBorrowerActivity"
             android:label="Sửa thông tin người dùng"
             android:parentActivityName=".Borrower.ListBorrowerActivity" />
-        <activity android:name=".ScannerActivity"></activity>
+        <activity android:name=".ScannerActivity"
+            android:label="Quét mã số"/>
+        <activity android:name=".History.ListHistoryActivity"
+            android:label="Danh sách mượn sách"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".History.AddHistoryActivity"
+            android:label="Cho mượn sách"
+            android:parentActivityName=".History.ListHistoryActivity"></activity>
     </application>
 
 </manifest>

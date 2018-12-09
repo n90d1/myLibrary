@@ -2,6 +2,7 @@ var express = require('express');
 
 var databaseBo = require ("./databaseBook");//Database cho sách
 var databaseBorr = require ("./databaseBorrower");//Database cho người mượn
+var databaseHis = require("./databaseHistory");//Database cho lịch sử
 
 var app = express();
 
@@ -184,5 +185,37 @@ app.get("/updateBook", function(req,res){
  		}
  	});
  });
- /////////////////////////////-----BOOK----///////////////////////////////////////////////
- /////////////////////////////-----BOOK----///////////////////////////////////////////////
+ /////////////////////////////-----HISTORY----///////////////////////////////////////////////
+ app.get("/listHistory", function(req, res){
+  databaseHis.getHistory(function (resultQuery){
+    res.json(resultQuery);
+  });
+ });
+ app.listen(4000);
+ //Add history
+ app.get("/addHistory", function(req, res){
+  var borrowerId = req.query.borrowerId;
+  var bookId = req.query.bookId;
+  var dateBorrow = req.query.dateBorrow;
+  databaseHis.addHistory(borrowerId, bookId, dateBorrow, function(resultQuery){
+    if (resultQuery.length == 0) {
+      var resutNotAdd = {status: -1, text: " Add Failed !"};
+      res.json(resutNotAdd);
+    }else{
+      var resultOk = {status: 1, borrower: resultQuery};
+      res.json(resultOk);
+    }
+  });
+ });
+ //Delete History
+ app.get("/deleteHistory", function(req, res){
+  var idHistory = req.query.idHistory;
+  databaseHis.deleteHistory(idHistory, function(resultQuery){
+    if(resultQuery.length == 0){
+      var resutNotDel = {status: -1, text: "Delete Failed !"};
+    }else{
+      var resultOk = {status: 1, borrower: resultQuery};
+      res.json(resultOk);
+    }
+  });
+ });

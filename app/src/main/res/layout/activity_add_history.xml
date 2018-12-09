@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    tools:context=".History.AddHistoryActivity">
+
+        <ImageView
+            android:id="@+id/ivPicHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/history_icon" />
+
+        <LinearLayout
+            android:id="@+id/llBorrowId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivPicHistory"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:background="@drawable/border_item_add">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llBorrowId"
+                android:layout_alignStart="@+id/llBorrowId"
+                android:padding="5dp"
+                android:text="MÃ SỐ NGƯỜI MƯỢN"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                />
+
+            <EditText
+                android:id="@+id/edtBorrowerIdHis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ví dụ: 321651665"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llBookId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llBorrowId"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:background="@drawable/border_item_add">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/llBookId"
+                android:padding="5dp"
+                android:text="MÃ SỐ SÁCH MƯỢN"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"/>
+
+            <EditText
+                android:id="@+id/edtBookIdHis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ví dụ: 3216516565"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llDateBorrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llBookId"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:background="@drawable/border_item_add">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="NGÀY MƯỢN SÁCH"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/colorWhite"/>
+
+            <TextView
+                android:id="@+id/tvDateBorrowHis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ems="10"
+                android:hint="Ví dụ: First News"
+                android:inputType="textPersonName"
+                android:paddingLeft="3dp"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAddHis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="Thêm lịch sử mượn sách"
+        android:background="@drawable/rounded_button"/>
+</RelativeLayout>

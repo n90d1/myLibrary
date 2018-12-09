@@ -22,17 +22,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.nguye.mylibr.Book.book;
 import com.example.nguye.mylibr.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import static java.lang.Integer.parseInt;
 
@@ -118,7 +114,7 @@ public class ListBorrowerActivity extends AppCompatActivity {
     //Tạo dialog tìm kiếm
     private void showFindDialogBo(){
         final Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.dialog_find_book);
+        dialog.setContentView(R.layout.dialog_find);
         //Chuyển nền thành trong suốt
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 

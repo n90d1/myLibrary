@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.nguye.mylibr.R;
+import com.example.nguye.mylibr.ScannerActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +36,7 @@ import static java.lang.Integer.parseInt;
 
 public class ListBookActivity extends AppCompatActivity {
     ListView lvBook;
+    public static EditText edtFindBok;
     //10.18.101.162|| wifi FPT Polytechnic
     //10.0.136.36|| wifi Mang Day KTX
     String linkGetBook="http://10.0.136.36:3000/listBook";
@@ -142,26 +145,34 @@ public class ListBookActivity extends AppCompatActivity {
     //Tạo dialog tìm kiếm
     private void showFindDialog(){
         final Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.dialog_find_book);
+        dialog.setContentView(R.layout.dialog_find);
         //Chuyển nền thành trong suốt
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
-        final EditText edtFindBok = (EditText) dialog.findViewById(R.id.edtFind);
+        edtFindBok = (EditText) dialog.findViewById(R.id.edtFind);
         Button btnFindBok = (Button) dialog.findViewById(R.id.btnFind);
         Button btnCancelFindBok = (Button) dialog.findViewById(R.id.btnCancelFind);
+        ImageButton btnNextScanner = (ImageButton) dialog.findViewById(R.id.btnNextScaner);
 
+        btnNextScanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentNextScaner = new Intent(ListBookActivity.this, ScannerActivity.class);
+                startActivity(intentNextScaner);
+            }
+        });
         btnFindBok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String kt = edtFindBok.getText().toString();
-                if (kt.matches("\\d+")){
-                    getData(linkFindById(parseInt(kt)));
-                } else if(kt.equals("")){
-                    getData(linkGetBook);
-                } else {
-                    getData(linkFindByName(kt));
-                }
-                dialog.cancel();
+                    String kt = edtFindBok.getText().toString();
+                    if (kt.matches("\\d+")){
+                            getData(linkFindById(parseInt(kt)));
+                    } else if(kt.equals("")){
+                        getData(linkGetBook);
+                    } else {
+                        getData(linkFindByName(kt));
+                    }
+                    dialog.cancel();
             }
         });
         btnCancelFindBok.setOnClickListener(new View.OnClickListener() {

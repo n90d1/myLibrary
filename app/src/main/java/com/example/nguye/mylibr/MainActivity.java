@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.example.nguye.mylibr.Book.AddBookActivity;
 import com.example.nguye.mylibr.Book.ListBookActivity;
 import com.example.nguye.mylibr.Borrower.ListBorrowerActivity;
+import com.example.nguye.mylibr.History.ListHistoryActivity;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -25,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intentBorrower = new Intent(MainActivity.this, ListBorrowerActivity.class);
         startActivity(intentBorrower);
     }
-    public void nextBorrow(View v){
-        Intent intentScan = new Intent(MainActivity.this, ScannerActivity.class);
-        startActivity(intentScan);
+    public void nextHisory(View v){
+        Intent intentHistory = new Intent(MainActivity.this, ListHistoryActivity.class);
+        startActivity(intentHistory);
     }
 }

@@ -8,7 +8,7 @@
     tools:context=".Book.AddBookActivity">
 
     <ImageView
-        android:id="@+id/ivPicBook"
+        android:id="@+id/ivPicHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -16,10 +16,10 @@
         app:srcCompat="@drawable/book_icon" />
 
     <LinearLayout
-        android:id="@+id/llBookName"
+        android:id="@+id/llBorrowId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ivPicBook"
+        android:layout_below="@+id/ivPicHistory"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
@@ -29,8 +29,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llBookName"
-            android:layout_alignStart="@+id/llBookName"
+            android:layout_below="@+id/llBorrowId"
+            android:layout_alignStart="@+id/llBorrowId"
             android:padding="5dp"
             android:text="TÊN SÁCH"
             android:textStyle="bold"
@@ -47,10 +47,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llPhoneBo"
+        android:id="@+id/llBookId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llBookName"
+        android:layout_below="@+id/llBorrowId"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:padding="5dp"
@@ -59,7 +59,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/llPhoneBo"
+            android:layout_alignStart="@+id/llBookId"
             android:padding="5dp"
             android:text="TÁC GIẢ"
             android:textStyle="bold"
@@ -75,10 +75,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llAddressBo"
+        android:id="@+id/llDateBorrow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llPhoneBo"
+        android:layout_below="@+id/llBookId"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:padding="5dp"
@@ -104,7 +104,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llAddressBo"
+        android:layout_below="@+id/llDateBorrow"
         android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true">
 
@@ -129,14 +129,26 @@
                     android:text="MÃ SỐ SÁCH"
                     android:textStyle="bold"
                     android:textColor="@color/colorWhite"/>
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
                 <EditText
                     android:id="@+id/edtBookId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Ví du: 9786045843482"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/barcode_icon"
+                    android:onClick="scannerNext"/>
+
+            </LinearLayout>
+
 
             </LinearLayout>
 
