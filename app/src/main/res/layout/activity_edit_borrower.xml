@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivPicBoEdit"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/border_item_add"
         android:orientation="vertical"
         android:padding="5dp">
@@ -145,13 +145,6 @@
                         android:layout_weight="1"
                         android:layout_gravity="center_vertical"
                         android:id="@+id/tvBirhtdayBoEdit"/>
-                    <!--<EditText-->
-                        <!--android:id="@+id/edtBirhtdayBoEdit"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:ems="10"-->
-                        <!--android:hint="Ví dụ: 1998-08-07"-->
-                        <!--android:inputType="textPersonName" />-->
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -193,7 +186,7 @@
         android:id="@+id/tvBoIdEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="105dp"
+        android:layout_marginStart="115dp"
         android:layout_marginTop="20dp"
         android:layout_toEndOf="@+id/ivPicBoEdit"
         android:background="@drawable/border_item_add"

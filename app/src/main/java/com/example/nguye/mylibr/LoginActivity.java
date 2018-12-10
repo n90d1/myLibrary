@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edtUsername.getText().toString().equals("admin")||edtPassword.getText().toString().equals("admin")){
+                if (edtUsername.getText().toString().equals("admin")&&edtPassword.getText().toString().equals("admin")){
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     edtUsername.setText(""); edtPassword.setText("");

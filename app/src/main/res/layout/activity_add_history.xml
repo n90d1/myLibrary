@@ -16,7 +16,7 @@
             app:srcCompat="@drawable/history_icon" />
 
         <LinearLayout
-            android:id="@+id/llBorrowId"
+            android:id="@+id/llBorrowHisId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ivPicHistory"
@@ -29,56 +29,82 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/llBorrowId"
-                android:layout_alignStart="@+id/llBorrowId"
+                android:layout_below="@+id/llBorrowHisId"
+                android:layout_alignStart="@+id/llBorrowHisId"
                 android:padding="5dp"
                 android:text="MÃ SỐ NGƯỜI MƯỢN"
                 android:textStyle="bold"
-                android:textColor="@color/colorWhite"
-                />
-
-            <EditText
-                android:id="@+id/edtBorrowerIdHis"
+                android:textColor="@color/colorWhite" />
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Ví dụ: 321651665"
-                android:inputType="textPersonName" />
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvBorrowerIdHis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:ems="10"
+                    android:hint="Ví dụ: 3165164526"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="3dp"
+                    android:textSize="18dp"
+                    android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/barcode_icon"
+                    android:onClick="nextBoScan"/>
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llBookId"
+            android:id="@+id/llBookHisId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llBorrowId"
+            android:layout_below="@+id/llBorrowHisId"
             android:layout_marginTop="5dp"
             android:orientation="vertical"
             android:padding="5dp"
             android:background="@drawable/border_item_add">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/llBookId"
+                android:layout_alignStart="@+id/llBookHisId"
                 android:padding="5dp"
                 android:text="MÃ SỐ SÁCH MƯỢN"
                 android:textStyle="bold"
                 android:textColor="@color/colorWhite"/>
-
-            <EditText
-                android:id="@+id/edtBookIdHis"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Ví dụ: 3216516565"
-                android:inputType="textPersonName" />
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvBookIdHis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_gravity="center_vertical"
+                    android:hint="Ví dụ: 3216516565"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="3dp"
+                    android:textSize="18dp"
+                    android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/barcode_icon"
+                    android:onClick="nextBokScan"/>
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/llDateBorrow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llBookId"
+            android:layout_below="@+id/llBookHisId"
             android:layout_marginTop="5dp"
             android:orientation="vertical"
             android:padding="5dp"
@@ -99,9 +125,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:ems="10"
-                android:hint="Ví dụ: First News"
                 android:inputType="textPersonName"
                 android:paddingLeft="3dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="18dp" />
         </LinearLayout>
 

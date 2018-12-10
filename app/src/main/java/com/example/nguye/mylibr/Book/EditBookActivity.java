@@ -42,17 +42,28 @@ public class EditBookActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.item_save:
-                String bookIdEd = tvBookIdEdit.getText().toString();
-                String bookNameEd = edtBookNameEdit.getText().toString();
-                String kindEd = edtKindEdit.getText().toString();
-                String pHEd = edtpHEdit.getText().toString();
-                String authorEd = edtAuthorEdit.getText().toString();
-                int priceEd = Integer.parseInt(edtPriceEdit.getText().toString());
-                String noteEd = edtNoteEdit.getText().toString();
-                //Chèn các biến vào link
-                Update(link(bookIdEd,bookNameEd,kindEd,pHEd,authorEd,priceEd,noteEd));
-                Intent intentBa = new Intent(EditBookActivity.this, ListBookActivity.class);
-                startActivity(intentBa);
+                boolean check = true;
+                try {
+                    String bookIdEd = tvBookIdEdit.getText().toString();
+                    String bookNameEd = edtBookNameEdit.getText().toString();
+                    String kindEd = edtKindEdit.getText().toString();
+                    String pHEd = edtpHEdit.getText().toString();
+                    String authorEd = edtAuthorEdit.getText().toString();
+                    int priceEd = Integer.parseInt(edtPriceEdit.getText().toString());
+                    String noteEd = edtNoteEdit.getText().toString();
+                    if (bookNameEd.equals("")||kindEd.equals("")||pHEd.equals("")||authorEd.equals("")||noteEd.equals("")){
+                        Toast.makeText(this, "Vui lòng không bỏ trống mất kì trường nào", Toast.LENGTH_SHORT).show();
+                        check = false;
+                    }
+                    if (check == true){
+                        //Chèn các biến vào link
+                        Update(link(bookIdEd,bookNameEd,kindEd,pHEd,authorEd,priceEd,noteEd));
+                        Intent intentBa = new Intent(EditBookActivity.this, ListBookActivity.class);
+                        startActivity(intentBa);
+                    }
+                }catch (NumberFormatException fm){
+                    Toast.makeText(this, "Lỗi, vui lòng nhập lại", Toast.LENGTH_SHORT).show();
+                }
                 return true;
         }
         return super.onOptionsItemSelected(item);

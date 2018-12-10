@@ -24,7 +24,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.nguye.mylibr.R;
-import com.example.nguye.mylibr.ScannerActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;

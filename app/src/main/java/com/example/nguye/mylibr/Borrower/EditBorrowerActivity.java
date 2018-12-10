@@ -49,16 +49,35 @@ public class EditBorrowerActivity extends AppCompatActivity implements DatePicke
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.item_save:
-                String borrowerIdEd = tvBoIdEdit.getText().toString();
-                String nameBorrowerEd = edtBoNameEdit.getText().toString();
-                String phoneBoEd = edtPhoneBoEdit.getText().toString();
-                String addressBoEd = edtAddressBoEdit.getText().toString();
-                String birthdayBoEd = tvBirthdayBoEdit.getText().toString();
-                String emailBoEd = edtEmailBoEdit.getText().toString();
-                //Chèn link
-                UpdateBo(link(borrowerIdEd, nameBorrowerEd, phoneBoEd, addressBoEd, birthdayBoEd, emailBoEd));
-                Intent intentBo = new Intent(EditBorrowerActivity.this, ListBorrowerActivity.class);
-                startActivity(intentBo);
+                //Kiểm tra form
+                boolean check = true;
+                try {
+                    String borrowerIdEd = tvBoIdEdit.getText().toString();
+                    String nameBorrowerEd = edtBoNameEdit.getText().toString();
+                    String phoneBoEd = edtPhoneBoEdit.getText().toString();
+                    String addressBoEd = edtAddressBoEdit.getText().toString();
+                    String birthdayBoEd = tvBirthdayBoEdit.getText().toString();
+                    String emailBoEd = edtEmailBoEdit.getText().toString();
+                    if( nameBorrowerEd.equals("")||phoneBoEd.equals("")||addressBoEd.equals("")||birthdayBoEd.equals("")||emailBoEd.equals("")){
+                        Toast.makeText(this, "Vui lòng không bỏ trống bất cứ trường nào", Toast.LENGTH_SHORT).show();
+                        check = false;
+                    }else if (!phoneBoEd.matches("\\d+")){
+                        Toast.makeText(this, "Kiểm tra lại số điện thoại", Toast.LENGTH_SHORT).show();
+                        check = false;
+                    }else if (phoneBoEd.length()>10){
+                        Toast.makeText(this, "Số điện thoại khônng quá 10 số", Toast.LENGTH_SHORT).show();
+                        check =false;
+                    }
+
+                    if (check==true){
+                        //Chèn link
+                        UpdateBo(link(borrowerIdEd, nameBorrowerEd, phoneBoEd, addressBoEd, birthdayBoEd, emailBoEd));
+                        Intent intentBo = new Intent(EditBorrowerActivity.this, ListBorrowerActivity.class);
+                        startActivity(intentBo);
+                    }
+                }catch (Exception e){
+                    Toast.makeText(this, "Lỗi, vui lòng nhập lại", Toast.LENGTH_SHORT).show();
+                }
         }
         return super.onOptionsItemSelected(item);
     }

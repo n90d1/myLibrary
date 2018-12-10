@@ -15,13 +15,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.nguye.mylibr.History.Scanner.Scanner3Activity;
+import com.example.nguye.mylibr.History.Scanner.Scanner4Activity;
 import com.example.nguye.mylibr.R;
 
 import java.text.DateFormat;
 import java.util.Calendar;
 
 public class AddHistoryActivity extends AppCompatActivity {
-    EditText edtBorrowerIdHis, edtBookIdHis;
+    public static TextView tvBorrowerIdHis, tvBookIdHis;
     TextView tvDateBorrow;
     Button btnAddHis;
     @Override
@@ -35,13 +37,19 @@ public class AddHistoryActivity extends AppCompatActivity {
         btnAddHis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String borrowerIdHis = edtBorrowerIdHis.getText().toString();
-                String bookIdHis= edtBookIdHis.getText().toString();
+                boolean check = true;
+                String borrowerIdHis = tvBorrowerIdHis.getText().toString();
+                String bookIdHis= tvBookIdHis.getText().toString();
                 String dateBorrow = tvDateBorrow.getText().toString();
-
-                AddHis(linkHis(borrowerIdHis, bookIdHis, dateBorrow));
-                Intent intentNexHis = new Intent(AddHistoryActivity.this, ListHistoryActivity.class);
-                startActivity(intentNexHis);
+                if (borrowerIdHis.equals("")||bookIdHis.equals("")||dateBorrow.equals("")){
+                    Toast.makeText(AddHistoryActivity.this, "Vui lòng không bỏ trống bất kìa trường nào", Toast.LENGTH_SHORT).show();
+                    check = false;
+                }
+                if (check==true){
+                    AddHis(linkHis(borrowerIdHis, bookIdHis, dateBorrow));
+                    Intent intentNexHis = new Intent(AddHistoryActivity.this, ListHistoryActivity.class);
+                    startActivity(intentNexHis);
+                }
             }
         });
     }
@@ -53,8 +61,8 @@ public class AddHistoryActivity extends AppCompatActivity {
     }
     //Ánh Xạ
     public void linkNet(){
-        edtBorrowerIdHis = (EditText)findViewById(R.id.edtBorrowerIdHis);
-        edtBookIdHis = (EditText)findViewById(R.id.edtBookIdHis);
+        tvBorrowerIdHis = (TextView)findViewById(R.id.tvBorrowerIdHis);
+        tvBookIdHis = (TextView)findViewById(R.id.tvBookIdHis);
         tvDateBorrow = (TextView)findViewById(R.id.tvDateBorrowHis);
         btnAddHis = (Button)findViewById(R.id.btnAddHis);
     }
@@ -77,5 +85,13 @@ public class AddHistoryActivity extends AppCompatActivity {
         });
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
+    }
+    public void nextBoScan(View view){
+        Intent intentBo = new Intent(AddHistoryActivity.this, Scanner3Activity.class);
+        startActivity(intentBo);
+    }
+    public void nextBokScan(View view){
+        Intent intentBok = new Intent(AddHistoryActivity.this, Scanner4Activity.class);
+        startActivity(intentBok);
     }
 }

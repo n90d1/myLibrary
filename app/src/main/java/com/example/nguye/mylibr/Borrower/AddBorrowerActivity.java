@@ -22,12 +22,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.nguye.mylibr.R;
+import com.example.nguye.mylibr.Book.ScannerActivity;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AddBorrowerActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
-    EditText edtBorrowerName, edtPhoneBo, edtAddressBo, edtBorrowerId, edtEmailBo;
+    public static EditText edtBorrowerId;
+    EditText edtBorrowerName, edtPhoneBo, edtAddressBo, edtEmailBo;
     TextView tvBirthdayBo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,16 +60,34 @@ public class AddBorrowerActivity extends AppCompatActivity implements DatePicker
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.item_save:
-                String borrowerId = edtBorrowerId.getText().toString();
-                String nameBorrower = edtBorrowerName.getText().toString();
-                String addressBo = edtAddressBo.getText().toString();
-                String phoneBo = edtPhoneBo.getText().toString();
-                String birthdayBo = tvBirthdayBo.getText().toString();
-                String emailBo = edtEmailBo.getText().toString();
-                //Chèn zô link Add
-                AddBo(linkBo(nameBorrower, phoneBo, addressBo, borrowerId, birthdayBo, emailBo));
-                Intent intentNext = new Intent(AddBorrowerActivity.this, ListBorrowerActivity.class);
-                startActivity(intentNext);
+                try{
+                    boolean check = true;
+                    String borrowerId = edtBorrowerId.getText().toString();
+                    String nameBorrower = edtBorrowerName.getText().toString();
+                    String addressBo = edtAddressBo.getText().toString();
+                    String phoneBo = edtPhoneBo.getText().toString();
+                    String birthdayBo = tvBirthdayBo.getText().toString();
+                    String emailBo = edtEmailBo.getText().toString();
+                    if (borrowerId.equals("")||nameBorrower.equals("")||addressBo.equals("")
+                            ||phoneBo.equals("")||birthdayBo.equals("")||emailBo.equals("")){
+                        Toast.makeText(this, "Vui lòng không bỏ trống bất kỳ trường nào", Toast.LENGTH_SHORT).show();
+                        check = false;
+                    }else if (!phoneBo.matches("\\d+")){
+                        Toast.makeText(this, "Vui lòng kiểm tra lại số điện thoại", Toast.LENGTH_SHORT).show();
+                        check=false;
+                    }else if (phoneBo.length()>10){
+                        Toast.makeText(this, "Số điện thoại không quá 10 số", Toast.LENGTH_SHORT).show();
+                        check = false;
+                    }
+                    if (check==true){
+                        //Chèn zô link Add
+                        AddBo(linkBo(nameBorrower, phoneBo, addressBo, borrowerId, birthdayBo, emailBo));
+                        Intent intentNext = new Intent(AddBorrowerActivity.this, ListBorrowerActivity.class);
+                        startActivity(intentNext);
+                    }
+                }catch (Exception e){
+                    Toast.makeText(this, "Lỗi ! Vui lòng nhập lại", Toast.LENGTH_SHORT).show();
+                }
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -116,5 +138,9 @@ public class AddBorrowerActivity extends AppCompatActivity implements DatePicker
 
         tvBirthdayBo.setText(currentDateString);
 
+    }
+    public void scannerNext(View v){
+        Intent intentNext= new Intent(AddBorrowerActivity.this, Scanner2Activity.class);
+        startActivity(intentNext);
     }
 }

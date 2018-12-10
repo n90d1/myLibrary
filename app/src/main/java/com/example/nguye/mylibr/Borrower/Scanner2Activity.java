@@ -1,38 +1,33 @@
-package com.example.nguye.mylibr;
+package com.example.nguye.mylibr.Borrower;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
-import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.nguye.mylibr.Book.AddBookActivity;
-import com.example.nguye.mylibr.Book.ListBookActivity;
+import com.example.nguye.mylibr.Book.ScannerActivity;
+import com.example.nguye.mylibr.R;
 import com.google.zxing.Result;
-
-import java.lang.invoke.MethodHandles;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 import static android.Manifest.permission.CAMERA;
 
-public class ScannerActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
+public class Scanner2Activity extends AppCompatActivity implements ZXingScannerView.ResultHandler{
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView scannerView;
-    public static String send;
     private static int camId = Camera.CameraInfo.CAMERA_FACING_BACK;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         scannerView = new ZXingScannerView(this);
         setContentView(scannerView);
@@ -117,7 +112,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
     }
 
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
-        new android.support.v7.app.AlertDialog.Builder(ScannerActivity.this)
+        new android.support.v7.app.AlertDialog.Builder(Scanner2Activity.this)
                 .setMessage(message)
                 .setPositiveButton("OK", okListener)
                 .setNegativeButton("Cancel", null)
@@ -130,27 +125,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
         final String myResult = result.getText();
         Log.d("QRCodeScanner", result.getText());
         Log.d("QRCodeScanner", result.getBarcodeFormat().toString());
-        AddBookActivity.edtBookId.setText(result.getText());
+        AddBorrowerActivity.edtBorrowerId.setText(myResult);
         onBackPressed();
-//
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setTitle("Scan Result");
-//        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                scannerView.resumeCameraPreview(ScannerActivity.this);
-//            }
-//        });
-//        builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myResult));
-//                startActivity(browserIntent);
-//
-//            }
-//        });
-//        builder.setMessage(result.getText());
-//        AlertDialog alert1 = builder.create();
-//        alert1.show();
     }
 }

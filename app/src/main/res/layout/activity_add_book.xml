@@ -16,7 +16,7 @@
         app:srcCompat="@drawable/book_icon" />
 
     <LinearLayout
-        android:id="@+id/llBorrowId"
+        android:id="@+id/llBorrowHisId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivPicHistory"
@@ -29,8 +29,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llBorrowId"
-            android:layout_alignStart="@+id/llBorrowId"
+            android:layout_below="@+id/llBorrowHisId"
+            android:layout_alignStart="@+id/llBorrowHisId"
             android:padding="5dp"
             android:text="TÊN SÁCH"
             android:textStyle="bold"
@@ -47,10 +47,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llBookId"
+        android:id="@+id/llBookHisId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llBorrowId"
+        android:layout_below="@+id/llBorrowHisId"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:padding="5dp"
@@ -59,7 +59,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/llBookId"
+            android:layout_alignStart="@+id/llBookHisId"
             android:padding="5dp"
             android:text="TÁC GIẢ"
             android:textStyle="bold"
@@ -78,7 +78,7 @@
         android:id="@+id/llDateBorrow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llBookId"
+        android:layout_below="@+id/llBookHisId"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:padding="5dp"
@@ -148,8 +148,6 @@
                     android:onClick="scannerNext"/>
 
             </LinearLayout>
-
-
             </LinearLayout>
 
             <LinearLayout

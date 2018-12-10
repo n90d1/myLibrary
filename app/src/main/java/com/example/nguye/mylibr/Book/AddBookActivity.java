@@ -18,9 +18,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.nguye.mylibr.R;
-import com.example.nguye.mylibr.ScannerActivity;
 
 public class AddBookActivity extends AppCompatActivity {
+    public static final String EXTRA_ID = "com.example.nguye.mylibr.Book";
     public static EditText edtBookId;
     EditText edtBookName, edtKind, edtpH, edtAuthor, edtPrice, edtNote;
     @Override
@@ -50,17 +50,29 @@ public class AddBookActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.item_save:
-                String bookId = edtBookId.getText().toString();
-                String bookName = edtBookName.getText().toString();
-                String kind = edtKind.getText().toString();
-                String pH = edtpH.getText().toString();
-                String author = edtAuthor.getText().toString();
-                int price =Integer.parseInt(edtPrice.getText().toString());
-                String note = edtNote.getText().toString();
-                //Chèn các biến vào link
-                Add(link(bookId, bookName, kind, pH, author, price, note));
-                Intent intentNextBok = new Intent(AddBookActivity.this, ListBookActivity.class);
-                startActivity(intentNextBok);
+                try{
+                    boolean check = true;
+                    String bookId = edtBookId.getText().toString();
+                    String bookName = edtBookName.getText().toString();
+                    String kind = edtKind.getText().toString();
+                    String pH = edtpH.getText().toString();
+                    String author = edtAuthor.getText().toString();
+                    int price =Integer.parseInt(edtPrice.getText().toString());
+                    String note = edtNote.getText().toString();
+                    //Kiểm tra rỗng
+                    if(bookId.equals("")||bookName.equals("")||kind.equals("")||pH.equals("")||author.equals("")||note.equals("")){
+                        Toast.makeText(this, "Vui lòng không bỏ trống bất kì trường nào !", Toast.LENGTH_SHORT).show();
+                        check=false;
+                    }
+                    if (check==true){
+                        //Chèn các biến vào link
+                        Add(link(bookId, bookName, kind, pH, author, price, note));
+                        Intent intentNextBok = new Intent(AddBookActivity.this, ListBookActivity.class);
+                        startActivity(intentNextBok);
+                    }
+                }catch (NumberFormatException nf){
+                    Toast.makeText(this, "Lỗi, vui lòng nhập lại!", Toast.LENGTH_SHORT).show();
+                }
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -98,6 +110,7 @@ public class AddBookActivity extends AppCompatActivity {
     }
     public void scannerNext(View v){
         Intent intentSc = new Intent(AddBookActivity.this, ScannerActivity.class);
+        intentSc.putExtra(EXTRA_ID, "addBook");
         startActivity(intentSc);
     }
 

@@ -21,7 +21,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.nguye.mylibr.Book.ListBookActivity;
 import com.example.nguye.mylibr.Book.book;
+import com.example.nguye.mylibr.Borrower.ListBorrowerActivity;
 import com.example.nguye.mylibr.R;
 
 import org.json.JSONArray;
@@ -49,6 +51,13 @@ public class ListHistoryActivity extends AppCompatActivity {
         lvHistory.setAdapter(historysAdapter);
         getDataHis(linkGetHistory);
 
+        lvHistory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                posih = position;
+            }
+        });
+
         lvHistory.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -61,6 +70,7 @@ public class ListHistoryActivity extends AppCompatActivity {
             }
         });
     }
+    //Dialog cảnh báo xoá
     public void showAlertDialogHis(){
         final Dialog diaLog = new Dialog(this);
         diaLog.setContentView(R.layout.dialog_alert);
@@ -82,13 +92,14 @@ public class ListHistoryActivity extends AppCompatActivity {
         });
         diaLog.show();
     }
+    //Tạo menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_add, menu);
         return true;
     }
-
+    //Setup chức năng cho item cho Menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -99,13 +110,14 @@ public class ListHistoryActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    //Link xoá
     public String linkDel(int idHistory){
         //10.18.101.162|| wifi FPT Polytechnic
         //10.0.136.36|| wifi Mang Day KTX
         String linkDelHis = "http://10.0.136.36:4000/deleteHistory?idHistory="+idHistory;
         return linkDelHis;
     }
-
+    //Get data
     public  void getDataHis(String link){
         final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(link, new Response.Listener<JSONArray>() {
@@ -139,6 +151,7 @@ public class ListHistoryActivity extends AppCompatActivity {
         });
         requestQueue.add(jsonArrayRequest);
     }
+    //Chạy lệnh
     private void RunHis(String Link){
         StringRequest stringRequest = new StringRequest(Request.Method.GET,Link, new Response.Listener<String>() {
             @Override
