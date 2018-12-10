@@ -300,7 +300,6 @@ public class ListBorrowerActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
             }
         });
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
