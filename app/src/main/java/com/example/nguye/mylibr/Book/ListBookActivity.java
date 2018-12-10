@@ -68,7 +68,7 @@ public class ListBookActivity extends AppCompatActivity {
                 try {
                     posi = position;
                     showAlertDialog();
-                    bookId = parseInt(bookArrayList.get(position).getBookId());
+                    bookId = Integer.parseInt(bookArrayList.get(position).bookId);
                 } catch (Exception e) {}
                 return false;
             }
@@ -226,7 +226,7 @@ public class ListBookActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Run(linkDel(bookId));
+                RunBok(linkDel(bookId));
                 diaLog.cancel();
                 getData(linkGetBook);
             }
@@ -303,7 +303,7 @@ public class ListBookActivity extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
     }
     //Hàm thực thi lệnh xoá
-    private void Run(String Link){
+    private void RunBok(String Link){
         StringRequest stringRequest = new StringRequest(Request.Method.GET,Link, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

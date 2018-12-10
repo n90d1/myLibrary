@@ -188,7 +188,6 @@ public class ListBorrowerActivity extends AppCompatActivity {
         btnDeleteBo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Xoá sách vừa chọn", Toast.LENGTH_SHORT).show();
                 Run(linkDelBo(borrowerId));
                 getDataBo(linkGetBorrower);
                 diaLog.cancel();
